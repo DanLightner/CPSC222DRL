@@ -1,16 +1,8 @@
-
-
 from flask import Flask, request, jsonify
+import pwd
+import grp
 
 app = Flask(__name__)
-
-# Dummy username and password
-USERNAME = "test"
-PASSWORD = "abcABC123"
-
-# Dummy user and group data
-users_data = {"0": "root", "1": "daemon", "2": "bin", "3": "sys", "4": "sync", "5": "games"}
-groups_data = {"0": "root", "1": "daemon", "2": "bin", "3": "sys", "4": "adm"}
 
 # Basic authentication
 def authenticate():
@@ -20,18 +12,31 @@ def authenticate():
     return True
 
 # Route to get list of users
-@app.route('/api/users', methods=['POST'])
+@app.route('/api/users', methods=['GET', 'POST'])
 def users():
     if not authenticate():
         return jsonify({'error': 'Unauthorized access'}), 401
-    return jsonify(users_data)
+    
+    # Retrieve user information
+    users_info = {}
+    for user in pwd.getpwall():
+        users_info[str(user.pw_uid)] = user.pw_name
+    
+    return jsonify(users_info)
 
 # Route to get list of groups
-@app.route('/api/groups', methods=['POST'])
+@app.route('/api/groups', methods=['GET', 'POST'])
 def groups():
     if not authenticate():
         return jsonify({'error': 'Unauthorized access'}), 401
-    return jsonify(groups_data)
+    
+    # Retrieve group information
+    groups_info = {}
+    for group in grp.getgrall():
+        groups_info[str(group.gr_gid)] = group.gr_name
+    
+    return jsonify(groups_info)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000)
+
