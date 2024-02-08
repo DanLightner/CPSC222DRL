@@ -1,0 +1,15 @@
+[Unit]
+Description=Python API Service
+After=network.target
+
+[Service]
+User=vboxuser
+Group=vboxuser
+WorkingDirectory=/home/vboxuser/CPSC222DRL/
+ExecStart=/usr/bin/python3 /home/vboxuser/CPSC222DRL/http_api.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
