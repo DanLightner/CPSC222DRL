@@ -16,7 +16,7 @@ def authenticate():
     return True
 
 # Route to get list of users
-@app.route('/api/users', methods=['GET', 'POST'])
+@app.route('/api/users', methods=['POST'])
 def users():
     if not authenticate():
         return jsonify({'error': 'Unauthorized access'}), 401
@@ -29,7 +29,7 @@ def users():
     return jsonify(users_info)
 
 # Route to get list of groups
-@app.route('/api/groups', methods=['GET', 'POST'])
+@app.route('/api/groups', methods=['POST'])
 def groups():
     if not authenticate():
         return jsonify({'error': 'Unauthorized access'}), 401
@@ -42,4 +42,4 @@ def groups():
     return jsonify(groups_info)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000)
+    app.run(host='localhost', port=3000)
