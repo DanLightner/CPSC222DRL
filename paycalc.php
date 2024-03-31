@@ -17,20 +17,20 @@
     $netPay = $grossPay - $totalDeductions;
 
 function calculateFederalTaxBracket($estimatedAnnualIncome) {
-    if ($estimatedAnnualIncome <= 11000) {
+    if ($estimatedAnnualIncome <= 11600) {
         return "10%"; 
-    } elseif ($estimatedAnnualIncome <= 44725) {
+    } elseif ($estimatedAnnualIncome >= 11601 && $estimatedAnnualIncome <= 47150) {
         return "12%"; 
-    } elseif ($estimatedAnnualIncome <= 95375) {
+    }elseif ($estimatedAnnualIncome >= 47151 && $estimatedAnnualIncome <= 100525) {
         return "22%"; 
-    } elseif ($estimatedAnnualIncome <= 182100) {
-        return "24%"; 
-    } elseif ($estimatedAnnualIncome <= 231250) {
+    }elseif ($estimatedAnnualIncome >= 100526 && $estimatedAnnualIncome <= 191950) {
+        return "24%";
+    } elseif ($estimatedAnnualIncome >= 191951 && $estimatedAnnualIncome <= 243725) { 
         return "32%"; 
-    } elseif ($estimatedAnnualIncome <= 578125) {
-        return "35%"; 
-    } else {
-        return "37%"; 
+    } elseif ($estimatedAnnualIncome >= 243726 && $estimatedAnnualIncome <= 609350) {
+        return "35%";
+    } elseif ($estimatedAnnualIncome <= 609351) {
+        return "37%";
     }
 }
 function calculatePercent($estimatedAnnualIncome) {
