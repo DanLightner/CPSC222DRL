@@ -98,6 +98,12 @@ function calculatePercent($estimatedAnnualIncome) {
             <th>Net Pay</th>
             <td>$<?php echo number_format($netPay, 2); ?></td>
         </tr>
-    </table>
+         <tr>
+         <td>Tax Bracket</td>
+        <td> <?php echo $federalTaxBracket; ?> </td>
+        </tr>
+  
+
+ </table>
 </body>
 </html>
