@@ -36,15 +36,15 @@ function calculateFederalTaxBracket($estimatedAnnualIncome) {
 function calculatePercent($estimatedAnnualIncome) {
     if ($estimatedAnnualIncome <= 11000) {
         return 0.10; 
-    } elseif ($estimatedAnnualIncome <= 44725) {
+    } elseif ($estimatedAnnualIncome >= 11001 && $estimatedAnnualIncome <= 44725) {
         return 0.12; 
-    } elseif ($estimatedAnnualIncome <= 95375) {
+    } elseif ($estimatedAnnualIncome >= 44726 && $estimatedAnnualIncome <= 95375) {
         return 0.22; 
-    } elseif ($estimatedAnnualIncome <= 182100) {
+    } elseif ($estimatedAnnualIncome >= 95376 && $estimatedAnnualIncome <= 182100) {
         return 0.24; 
-    } elseif ($estimatedAnnualIncome <= 231250) {
+    } elseif ($estimatedAnnualIncome >= 182101 && $estimatedAnnualIncome <= 231250) {
         return 0.32; 
-    } elseif ($estimatedAnnualIncome <= 578125) {
+    } elseif ($estimatedAnnualIncome >= 231251 && $estimatedAnnualIncome <= 578125) {
         return 0.35; 
     } else {
         return 0.37; 
