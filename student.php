@@ -6,42 +6,42 @@ class Student {
     private $studentID;
     private $courses;
 
-    public function __construct($firstName, $lastName, $studentID, $courses) {
+    function __construct($firstName, $lastName, $studentID, $courses) {
         $this->setFirstName($firstName);
         $this->setLastName($lastName);
         $this->setStudentID($studentID);
         $this->setCourses($courses);
     }
 
-    public function setFirstName($firstName) {
+    function setFirstName($firstName) {
         $this->firstName = $firstName;
     }
 
-    public function setLastName($lastName) {
+    function setLastName($lastName) {
         $this->lastName = $lastName;
     }
 
-    public function setStudentID($studentID) {
+    function setStudentID($studentID) {
         $this->studentID = $studentID;
     }
 
-    public function setCourses($courses) {
+    function setCourses($courses) {
         $this->courses = $courses;
     }
 
-    public function getFirstName() {
+    function getFirstName() {
         return $this->firstName;
     }
 
-    public function getLastName() {
+    function getLastName() {
         return $this->lastName;
     }
 
-    public function getStudentID() {
+    function getStudentID() {
         return $this->studentID;
     }
 
-    public function getCourses() {
+    function getCourses() {
         return $this->courses;
     }
 }
